@@ -10,14 +10,18 @@ services:
       dockerfile: Dockerfile
     environment:
       - PORT=3001
-      - THEPOPEBOT_DOMAIN=${APP_HOSTNAME}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - AIRTABLE_TOKEN=${AIRTABLE_TOKEN}
+      - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+    volumes:
+      - ./skills-library/accounting-survey/SKILL.md:/app/SKILL.md:ro
     ports:
       - "3001:3001"
     depends_on:
       - event-handler
     labels:
       - traefik.enable=true
-      - traefik.http.routers.survey.rule=Host(`${APP_HOSTNAME}`) && Path(`/survey`)
+      - traefik.http.routers.survey.rule=Host(`${APP_HOSTNAME}`) && PathPrefix(`/survey`)
       - traefik.http.routers.survey.entrypoints=web
       - traefik.http.services.survey.loadbalancer.server.port=3001
     restart: unless-stopped
