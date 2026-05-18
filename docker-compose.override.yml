@@ -1,0 +1,23 @@
+# Docker Compose Override — Survey Server
+# This file is automatically merged with docker-compose.yml by Docker Compose
+# and is NOT managed by thepopebot (will survive upgrades)
+
+services:
+  survey-server:
+    container_name: survey-server
+    build:
+      context: ./survey-server
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3001
+      - THEPOPEBOT_URL=http://event-handler
+    ports:
+      - "3001:3001"
+    depends_on:
+      - event-handler
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.survey.rule=Host(`${APP_HOSTNAME}`) && Path(`/survey`)
+      - traefik.http.routers.survey.entrypoints=web
+      - traefik.http.services.survey.loadbalancer.server.port=3001
+    restart: unless-stopped

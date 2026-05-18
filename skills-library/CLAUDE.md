@@ -141,6 +141,11 @@ Use only when a required library has no bash/curl alternative. Add a `package.js
 
 Always build AND test a skill in the same job. Tell the agent to test with real input after creating the skill and fix any issues before committing.
 
+## Custom Skills
+
+### accounting-survey
+Accounting firm tech stack discovery survey. Conducts a friendly, professional 12-stage interview to understand what software tools a firm uses, their pain points, and growth goals. Creates records in Airtable and auto-calculates prospect qualification scores (Hot/Warm/Cold). Triggered via `/survey?id=...` links or when users mention survey trigger phrases.
+
 ## Default Skills
 
 Bundled in this directory and activated by default on first install:

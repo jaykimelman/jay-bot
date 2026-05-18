@@ -16,8 +16,18 @@ This is a [thepopebot](https://github.com/stephengpope/thepopebot) project.
 ## Files
 
 - **`docker-compose.yml`** — Container definitions for the event handler and LiteLLM proxy. Managed — do not edit.
-- **`docker-compose.custom.yml`** — Your Docker Compose overrides. Merged with the main compose file.
+- **`docker-compose.custom.yml`** — Your Docker Compose overrides for SSL/HTTPS setup. Merged with the main compose file. User-owned — not overwritten on upgrade.
+- **`docker-compose.override.yml`** — Your Docker Compose overrides for HTTP (ngrok) setup. Auto-merged by Docker Compose, user-owned — not overwritten on upgrade.
 - **`.env`** — Environment variables (API keys, secrets). Never committed to git.
+
+## Survey Server
+
+- **`survey-server/`** — Standalone Node.js/Express service that serves the accounting firm survey at `/survey?id=...`
+  - `server.js` — Express app that proxies requests to thepopebot's chat backend
+  - `public/survey.html` — Clean chat UI (no sidebar, just messages + input)
+  - `Dockerfile` — Builds the survey server image
+  - Configured in `docker-compose.override.yml` (HTTP) and `docker-compose.custom.yml` (HTTPS)
+  - Routed via Traefik: requests to `/survey` → survey-server, everything else → thepopebot
 
 ## Managed Files
 

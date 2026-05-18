@@ -73,6 +73,26 @@ services:
       start_period: 30s
     restart: unless-stopped
 
+  survey-server:
+    container_name: survey-server
+    build:
+      context: ./survey-server
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3001
+      - THEPOPEBOT_URL=http://event-handler
+    ports:
+      - "3001:3001"
+    depends_on:
+      - event-handler
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.survey.rule=Host(`${APP_HOSTNAME}`) && Path(`/survey`)
+      - traefik.http.routers.survey.entrypoints=websecure
+      - traefik.http.routers.survey.tls.certresolver=letsencrypt
+      - traefik.http.services.survey.loadbalancer.server.port=3001
+    restart: unless-stopped
+
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
     command: --config /litellm/main.yaml --port 4000

@@ -1,0 +1,15 @@
+{
+  "name": "survey-server",
+  "version": "1.0.0",
+  "description": "Accounting firm tech stack discovery survey endpoint",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy": "^1.18.1",
+    "cors": "^2.8.5"
+  }
+}
