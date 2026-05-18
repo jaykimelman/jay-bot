@@ -294,6 +294,7 @@ Return ONLY JSON, no markdown.`,
     if (str(d.qualificationTier)) fields['Qualification Tier'] = d.qualificationTier;
     if (str(d.botSummary)) fields['Bot Summary'] = d.botSummary;
     if (str(d.conversationImpression)) fields['Conversation Impression'] = d.conversationImpression;
+    fields['Full Transcript'] = transcript;
 
     const saveRes = await fetch(
       `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(SURVEY_TABLE)}`,
