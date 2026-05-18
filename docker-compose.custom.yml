@@ -80,7 +80,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - PORT=3001
-      - THEPOPEBOT_URL=http://event-handler
+      - THEPOPEBOT_DOMAIN=${APP_HOSTNAME}
     ports:
       - "3001:3001"
     depends_on:

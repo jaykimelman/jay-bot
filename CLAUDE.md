@@ -22,12 +22,22 @@ This is a [thepopebot](https://github.com/stephengpope/thepopebot) project.
 
 ## Survey Server
 
-- **`survey-server/`** — Standalone Node.js/Express service that serves the accounting firm survey at `/survey?id=...`
-  - `server.js` — Express app that proxies requests to thepopebot's chat backend
-  - `public/survey.html` — Clean chat UI (no sidebar, just messages + input)
-  - `Dockerfile` — Builds the survey server image
-  - Configured in `docker-compose.override.yml` (HTTP) and `docker-compose.custom.yml` (HTTPS)
-  - Routed via Traefik: requests to `/survey` → survey-server, everything else → thepopebot
+- **`survey-server/`** — Lightweight Node.js/Express service for survey entry point
+  - `server.js` — Simple redirect server that serves a minimal landing page at `/survey?id=...`
+  - Shows brief context about Automation Edgers, then redirects to `https://domain/chat/{surveyId}`
+  - Auto-redirects after 5 seconds or on user click
+  - Configured in `docker-compose.override.yml` (HTTP/ngrok) and `docker-compose.custom.yml` (HTTPS/SSL)
+  - Routed via Traefik: requests to `/survey` → survey-server, everything else → thepopebot's native chat
+
+## Survey Flow
+
+1. User receives email: `https://domain/survey?id=abc12345`
+2. Clicks link → lands on survey-server's minimal landing page
+3. After 5 seconds or on click → redirects to `https://domain/chat/abc12345`
+4. Opens thepopebot's native chat with surveyId as the threadId
+5. Chat loads → **accounting-survey skill detects surveyId pattern and triggers automatically**
+6. Skill begins 12-stage discovery interview
+7. Survey responses saved to Airtable on completion
 
 ## Managed Files
 
