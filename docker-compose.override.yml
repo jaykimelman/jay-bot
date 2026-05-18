@@ -13,8 +13,10 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - AIRTABLE_TOKEN=${AIRTABLE_TOKEN}
       - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
+      - CONVERSATIONS_DIR=/app/conversations
     volumes:
       - ./skills-library/accounting-survey/SKILL.md:/app/SKILL.md:ro
+      - ./data/survey-conversations:/app/conversations
     ports:
       - "3001:3001"
     depends_on:
