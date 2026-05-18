@@ -281,7 +281,8 @@ Return ONLY JSON, no markdown.`,
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 
 app.get('/survey', (req, res) => {
-  const surveyId = req.query.id || generateSurveyId();
+  if (!req.query.id) return res.redirect(`/survey?id=${generateSurveyId()}`);
+  const surveyId = req.query.id;
   const chatUrl = `/survey/chat?id=${surveyId}`;
   res.send(`<!DOCTYPE html>
 <html lang="en">
