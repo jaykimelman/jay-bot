@@ -14,6 +14,7 @@ services:
       - AIRTABLE_TOKEN=${AIRTABLE_TOKEN}
       - AIRTABLE_BASE_ID=${AIRTABLE_BASE_ID}
       - CONVERSATIONS_DIR=/app/conversations
+      - BOOKING_URL=${BOOKING_URL:-}
     volumes:
       - ./skills-library/accounting-survey/SKILL.md:/app/SKILL.md:ro
       - ./data/survey-conversations:/app/conversations
