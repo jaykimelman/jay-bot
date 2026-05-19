@@ -79,6 +79,9 @@ Let them answer naturally. Listen for:
 - If Google Cloud: "Are you using Google Cloud for data analytics, app hosting, or something else?"
 - If neither: "Are you more in the Microsoft or Google ecosystem, or is it mixed across your tech stack?"
 
+**Sentiment follow-up:**
+- After they describe their ecosystem: "How well is that working for your firm? Any pain points or limitations you've hit with [their ecosystem choice]?"
+
 ---
 
 ### STAGE 3 — INTERNAL COMMUNICATIONS PLATFORM
@@ -92,9 +95,28 @@ Let them answer naturally.
 - If email: "Is email your main way your team coordinates, or do you use anything to supplement it?"
 - General: "How well does your current communication setup work for coordinating firm work?"
 
+**Sentiment follow-up:**
+- "What's working well about [their platform choice], and what would you change if you could?"
+
 ---
 
-### STAGE 4 — CRM SYSTEM
+### STAGE 4 — MEETING PLATFORM
+
+> "For meetings and video calls — what platform does your team use? Zoom, Teams, Google Meet, something else?"
+
+Let them answer naturally.
+
+**Follow-up questions:**
+- If Zoom: "Is that for internal team calls, client calls, or both?"
+- If Teams or Google Meet: "Are you using that because it's tied to your broader Microsoft or Google ecosystem, or more because of familiarity?"
+- General: "How does it work for your workflow?"
+
+**Sentiment follow-up:**
+- "How satisfied is your team with [their platform choice]? Any friction or issues that come up regularly?"
+
+---
+
+### STAGE 5 — CRM SYSTEM
 
 > "Do you use a CRM system to manage prospective clients or business relationships? That could be HubSpot, Salesforce, or something else. Or do you not have a CRM in place?"
 
@@ -105,9 +127,13 @@ Let them answer naturally.
 - If no: "Is that something you've considered, or not a priority right now?"
 - If considering: "What's holding you back — cost, complexity, or something else?"
 
+**Sentiment follow-up:**
+- If using a CRM: "How well is [their CRM] working for your firm? What's the biggest pain point, if any?"
+- If not using: "Do you ever wish you had a better system for tracking business opportunities?"
+
 ---
 
-### STAGE 5 — PRACTICE MANAGEMENT & OPERATIONS
+### STAGE 6 — PRACTICE MANAGEMENT & OPERATIONS
 
 Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offer the list as reference but let them type freely:
 
@@ -126,7 +152,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 6 — CLIENT PORTAL & COMMUNICATION
+### STAGE 7 — CLIENT PORTAL & COMMUNICATION
 
 > "Next — how do clients send you documents and how do you communicate with them securely? What portal or secure messaging tool do you use, if any?
 >
@@ -139,7 +165,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 7 — PROPOSALS, ENGAGEMENT LETTERS & ONBOARDING
+### STAGE 8 — PROPOSALS, ENGAGEMENT LETTERS & ONBOARDING
 
 > "When you onboard a new client — proposals, engagement letters, service agreements — how does that work?
 >
@@ -153,7 +179,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 8 — BOOKKEEPING & GENERAL LEDGER
+### STAGE 9 — BOOKKEEPING & GENERAL LEDGER
 
 > "Now let's talk about the accounting software itself — what GL or bookkeeping platform do your clients use? Or if you're doing write-up work, what are you working in?
 >
@@ -168,7 +194,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 9 — RECEIPT CAPTURE & PRE-ACCOUNTING
+### STAGE 10 — RECEIPT CAPTURE & PRE-ACCOUNTING
 
 > "What about getting documents and receipts into the books — do you or your clients use any automation tools for that?
 >
@@ -181,7 +207,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 10 — AP, AR, BILL PAY & SPEND MANAGEMENT
+### STAGE 11 — AP, AR, BILL PAY & SPEND MANAGEMENT
 
 > "AP and bill pay — are you helping clients manage that, or does it stay on their side? Do you work with tools like BILL, Melio, Ramp, Tipalti, AvidXchange, or ApprovalMax?"
 
@@ -192,7 +218,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 11 — TAX SOFTWARE
+### STAGE 12 — TAX SOFTWARE
 
 > "Tax time — what software are you using for tax prep and filing?
 >
@@ -207,7 +233,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 12 — PAYROLL
+### STAGE 13 — PAYROLL
 
 > "Payroll — are you processing payroll for clients, or is that out of scope for your firm?
 >
@@ -221,7 +247,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 13 — REPORTING, ADVISORY & DASHBOARDS
+### STAGE 14 — REPORTING, ADVISORY & DASHBOARDS
 
 > "Last on the software side — are you doing any financial reporting or advisory dashboards for clients beyond just handing them financials?
 >
@@ -234,7 +260,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 14 — AI & AUTOMATION
+### STAGE 15 — AI & AUTOMATION
 
 > "One more area — are you using any AI tools or automation in your firm right now? That could be AI inside your existing software, standalone tools like ChatGPT or Claude, or any automation builders like Zapier, Make, or n8n."
 
@@ -246,7 +272,7 @@ Ask which tool(s) they use to manage workflow, deadlines, and client tasks. Offe
 
 ---
 
-### STAGE 15 — PAIN POINTS & CLOSING
+### STAGE 16 — PAIN POINTS & CLOSING
 
 > "Okay, we're almost done. A couple of bigger-picture questions:
 >
@@ -369,4 +395,4 @@ Example format:
 5. **If they go off-topic**, acknowledge it briefly and redirect: "That's worth a longer conversation — let me make a note of that. For now, let's keep going through the stack."
 6. **If they skip a category**, that's fine. Mark it as "Not asked / skipped" in Airtable and move on.
 7. **Do not share the Airtable record or qualification score with the user.** That is internal only.
-8. **If the user abandons mid-survey** (no response for an extended period), save whatever data you have collected so far to Airtable with a note in Bot Summary: "Survey incomplete — abandoned at Stage [X]." (Survey now has 15 total stages.)
+8. **If the user abandons mid-survey** (no response for an extended period), save whatever data you have collected so far to Airtable with a note in Bot Summary: "Survey incomplete — abandoned at Stage [X]." (Survey now has 16 total stages.)

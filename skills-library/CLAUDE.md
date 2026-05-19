@@ -144,7 +144,7 @@ Always build AND test a skill in the same job. Tell the agent to test with real 
 ## Custom Skills
 
 ### accounting-survey
-Accounting firm tech stack discovery survey. Conducts a friendly, professional 12-stage interview to understand what software tools a firm uses, their pain points, and growth goals. Creates records in Airtable and auto-calculates prospect qualification scores (Hot/Warm/Cold). Triggered via `/survey?id=...` links or when users mention survey trigger phrases.
+Accounting firm tech stack discovery survey. Conducts a friendly, professional 16-stage interview to understand what software tools a firm uses, their pain points, and growth goals. Creates records in Airtable and auto-calculates prospect qualification scores (Hot/Warm/Cold). Triggered via `/survey?id=...` links or when users mention survey trigger phrases. Captures sentiment and pain points for Operating Ecosystem, Internal Communications Platform, CRM System, and Meeting Platform.
 
 ## Default Skills
 

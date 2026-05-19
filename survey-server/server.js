@@ -124,6 +124,24 @@ async function ensureAirtableTable() {
           { name: 'CPA/Tax Firm' }, { name: 'Bookkeeping/Write-Up' }, { name: 'CAS Firm' },
           { name: 'Full-Service Accounting' }, { name: 'Tax Prep Only' }, { name: 'Other' },
         ]}},
+        { name: 'Operating Ecosystem', type: 'singleSelect', options: { choices: [
+          { name: 'Microsoft 365' }, { name: 'Google Workspace' }, { name: 'Both' }, { name: 'Neither' },
+        ]}},
+        { name: 'Operating Ecosystem Sentiment', type: 'multilineText' },
+        { name: 'Power Platform Usage', type: 'multilineText' },
+        { name: 'Google Cloud Usage', type: 'multilineText' },
+        { name: 'Internal Comms Platform', type: 'singleSelect', options: { choices: [
+          { name: 'Email' }, { name: 'Slack' }, { name: 'Microsoft Teams' }, { name: 'Other' },
+        ]}},
+        { name: 'Internal Comms Platform Sentiment', type: 'multilineText' },
+        { name: 'CRM System', type: 'singleSelect', options: { choices: [
+          { name: 'HubSpot' }, { name: 'Salesforce' }, { name: 'Other' }, { name: 'None' },
+        ]}},
+        { name: 'CRM System Sentiment', type: 'multilineText' },
+        { name: 'Meeting Platform', type: 'singleSelect', options: { choices: [
+          { name: 'Zoom' }, { name: 'Microsoft Teams' }, { name: 'Google Meet' }, { name: 'Other' }, { name: 'None' },
+        ]}},
+        { name: 'Meeting Platform Sentiment', type: 'multilineText' },
         { name: 'Practice Management Tool(s)', type: 'multilineText' },
         { name: 'Practice Mgmt Satisfaction (1–5)', type: 'number', options: { precision: 0 } },
         { name: 'Client Portal Tool(s)', type: 'multilineText' },
@@ -214,6 +232,16 @@ Return JSON with exactly these keys:
   "firmName": string|null, "roleTitle": string|null,
   "firmSize": number|null, "activeClients": number|null,
   "firmType": "CPA/Tax Firm"|"Bookkeeping/Write-Up"|"CAS Firm"|"Full-Service Accounting"|"Tax Prep Only"|"Other"|null,
+  "operatingEcosystem": "Microsoft 365"|"Google Workspace"|"Both"|"Neither"|null,
+  "operatingEcosystemSentiment": string|null,
+  "powerPlatformUsage": string|null,
+  "googleCloudUsage": string|null,
+  "internalCommsPlatform": "Email"|"Slack"|"Microsoft Teams"|"Other"|null,
+  "internalCommsPlatformSentiment": string|null,
+  "crmSystem": "HubSpot"|"Salesforce"|"Other"|"None"|null,
+  "crmSystemSentiment": string|null,
+  "meetingPlatform": "Zoom"|"Microsoft Teams"|"Google Meet"|"Other"|"None"|null,
+  "meetingPlatformSentiment": string|null,
   "practiceManagementTools": string|null, "practiceManagementSatisfaction": number|null,
   "clientPortalTools": string|null,
   "portalAdoptionQuality": "High — clients use it well"|"Medium — mixed adoption"|"Low — mostly email still"|null,
@@ -265,6 +293,16 @@ Return ONLY JSON, no markdown.`,
     if (num(d.firmSize) != null) fields['Firm Size (Staff)'] = d.firmSize;
     if (num(d.activeClients) != null) fields['Active Clients (approx)'] = d.activeClients;
     if (str(d.firmType)) fields['Firm Type'] = d.firmType;
+    if (str(d.operatingEcosystem)) fields['Operating Ecosystem'] = d.operatingEcosystem;
+    if (str(d.operatingEcosystemSentiment)) fields['Operating Ecosystem Sentiment'] = d.operatingEcosystemSentiment;
+    if (str(d.powerPlatformUsage)) fields['Power Platform Usage'] = d.powerPlatformUsage;
+    if (str(d.googleCloudUsage)) fields['Google Cloud Usage'] = d.googleCloudUsage;
+    if (str(d.internalCommsPlatform)) fields['Internal Comms Platform'] = d.internalCommsPlatform;
+    if (str(d.internalCommsPlatformSentiment)) fields['Internal Comms Platform Sentiment'] = d.internalCommsPlatformSentiment;
+    if (str(d.crmSystem)) fields['CRM System'] = d.crmSystem;
+    if (str(d.crmSystemSentiment)) fields['CRM System Sentiment'] = d.crmSystemSentiment;
+    if (str(d.meetingPlatform)) fields['Meeting Platform'] = d.meetingPlatform;
+    if (str(d.meetingPlatformSentiment)) fields['Meeting Platform Sentiment'] = d.meetingPlatformSentiment;
     if (str(d.practiceManagementTools)) fields['Practice Management Tool(s)'] = d.practiceManagementTools;
     if (num(d.practiceManagementSatisfaction) != null) fields['Practice Mgmt Satisfaction (1–5)'] = d.practiceManagementSatisfaction;
     if (str(d.clientPortalTools)) fields['Client Portal Tool(s)'] = d.clientPortalTools;
